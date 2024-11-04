@@ -1,0 +1,49 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tabular Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Student Management System</title>
+    <style>
+        body {
+    text-align: center;
+}
+form {
+    display: inline-block;
+}
+    </style>
+</head>
+<body>
+<div class ="container">
+    <h1 style="text-align: center;"> Student Management System</h1>
+
+    <hr>
+    <h5>Update Student Details</h5>
+    <form action="#" th:action="@{/saveStudent}" th:object="${student}" method="post">
+        <!-Add hidden form field to handle update->
+        <input type="hidden" th:field="*{id}"/>
+        <label>First name:</label><br>
+        <input type="text" th:field="*{studentName}"
+               placeholder="student first name" class ="form-control mb-4 col-4">
+        <label>Last name:</label><br>
+        <input type="text" th:field="*{studentLastName}"
+               placeholder="student last name" class ="form-control mb-4 col-4">
+        <label>Email:</label><br>
+        <input type="text" th:field="*{email}"
+               placeholder="student email" class ="form-control mb-4 col-4">
+        <button type="submit" class="btn btn-info col-5">Update</button>
+
+    </form>
+    <hr>
+
+
+    <a th:href ="@{/showNewStudentForm}">Back to Student</a>
+
+
+</body>
+
+</html>
